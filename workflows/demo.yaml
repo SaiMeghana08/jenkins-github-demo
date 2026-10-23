@@ -1,2 +1,27 @@
+name: CI Pipeline
 
-Hello This is the demo file
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run build
+        run: echo "Building the application..."
+
+      - name: Run tests
+        run: echo "Running tests..."
+
+      - name: Deploy
+        run: echo "Deploying application..."
